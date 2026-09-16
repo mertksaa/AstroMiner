@@ -4,6 +4,10 @@ using System.Collections;
 public class DelayedTerminal : MonoBehaviour
 {
     public GameObject uiPanel;
+    
+    [Header("Bekleme Süresi")]
+    public float delayTime = 0.3f; // Artık süreyi koda girmeden Unity'den değiştirebilirsin
+    
     private Coroutine openCoroutine;
 
     private void Start()
@@ -30,7 +34,7 @@ public class DelayedTerminal : MonoBehaviour
 
     private IEnumerator OpenPanelDelay()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(delayTime);
         if (uiPanel != null) uiPanel.SetActive(true);
     }
 }
